@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Navigate, Outlet,Routes, Route } from "react-router-dom";
-import { Container, Typography, List, ListItem, ListItemText, Box, AppBar, Toolbar, Button } from "@mui/material";
+import { Container, Typography, List, ListItem, ListItemText, Box, AppBar, Toolbar } from "@mui/material";
 import Addpizza from "./Addpizza";
 import Editpizza from "./Editpizza";
 import Orderslist from "./Orderslist";
@@ -11,7 +11,7 @@ import Userslist from "./Userslist";
 export default function AdminScreen() {
   const userstate = useSelector((state) => state.loginUserReducer);
   const { currentUser } = userstate;
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     if (!currentUser.isAdmin) {

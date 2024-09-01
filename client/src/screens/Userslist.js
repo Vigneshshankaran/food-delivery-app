@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers, deleteUser } from "../actions/userActions";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
-import { Box, Container, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Paper } from '@mui/material';
+import { Container, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Paper } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function Userslist() {

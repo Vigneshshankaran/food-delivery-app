@@ -20,7 +20,7 @@ export default function Editpizza({ match }) {
   const { pizza, error, loading } = getpizzabyidstate;
 
   const editpizzastate = useSelector((state) => state.editPizzaReducer);
-  const { editloading, editerror, editsuccess } = editpizzastate;
+  const { editloading, editsuccess } = editpizzastate;
 
   useEffect(() => {
     if (pizza && pizza._id === match.params.pizzaid) {

@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import { Link } from "react-router-dom"; // Import for using Link for navigation
+import { Link } from "react-router-dom"; 
 import { logoutUser } from "../actions/userActions";
 
 export default function Navbar() {
@@ -75,7 +75,7 @@ export default function Navbar() {
                 <MenuItem onClick={handleMenuClose}>{currentUser.name}</MenuItem>
                 <MenuItem component={Link} to="/orders">Orders</MenuItem>
                 <MenuItem component={Link} to="/cart" onClick={handleMenuClose}>
-                <ShoppingCartCheckoutIcon />
+                  <ShoppingCartCheckoutIcon />
                   <Badge badgeContent={cartState.cartItems.length} color="secondary" sx={{ marginLeft: 1 }} />
                 </MenuItem>
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
@@ -94,18 +94,22 @@ export default function Navbar() {
 
         {/* Desktop Login and Cart Buttons */}
         <Box sx={{ display: { xs: 'none', lg: 'flex' }, alignItems: 'center' }}>
-          {currentUser && (
+          {isLargeScreen && currentUser && (
             <Button component={Link} to="/orders" color="inherit">
               Orders
             </Button>
           )}
-          <Button component={Link} to="/login" color="inherit">
-            Login
-          </Button>
-          <Button component={Link} to="/cart" color="inherit">
-            <ShoppingCartCheckoutIcon />
-            <Badge badgeContent={cartState.cartItems.length} color="secondary"  />
-          </Button>
+          {isLargeScreen && (
+            <Button component={Link} to="/login" color="inherit">
+              Login
+            </Button>
+          )}
+          {isLargeScreen && (
+            <Button component={Link} to="/cart" color="inherit">
+              <ShoppingCartCheckoutIcon />
+              <Badge badgeContent={cartState.cartItems.length} color="secondary"  />
+            </Button>
+          )}
         </Box>
       </Toolbar>
     </AppBar>
