@@ -1,0 +1,7 @@
+.pizza-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 16px; /* Space between items */
+    padding: 16px; /* Padding around the grid */
+  }
+  
