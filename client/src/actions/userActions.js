@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000/api/users';
+const API_BASE_URL = 'https://food-delivery-app-pktx-huxg6nvzg-vigneshs-projects-adc1c8e0.vercel.app/api/users';
 
 // Action to register a user
 export const registerUser = (user) => async (dispatch) => {

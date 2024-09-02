@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = 'http://localhost:8000/api/pizzas';
+const API_BASE_URL = 'https://food-delivery-app-pktx-huxg6nvzg-vigneshs-projects-adc1c8e0.vercel.app/api/pizzas';
 
 // Action to get all pizzas
 export const getAllPizzas = () => async (dispatch) => {

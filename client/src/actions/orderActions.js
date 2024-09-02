@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Define the base URL for API requests
-const API_BASE_URL = 'http://localhost:8000/api/orders';
+const API_BASE_URL = 'https://food-delivery-app-pktx-huxg6nvzg-vigneshs-projects-adc1c8e0.vercel.app/api/orders';
 
 // Action to place an order
 export const placeOrder = (token, subtotal) => async (dispatch, getState) => {
