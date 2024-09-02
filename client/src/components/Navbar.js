@@ -9,13 +9,11 @@ import {
   IconButton,
   MenuItem,
   Badge,
-  useMediaQuery,
-  useTheme,
   Box
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import { logoutUser } from "../actions/userActions";
 
 export default function Navbar() {
@@ -39,13 +37,9 @@ export default function Navbar() {
     handleMenuClose();
   };
 
-  const theme = useTheme();
-  const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
-
   return (
     <AppBar position="static" sx={{ backgroundColor: '#34c759' }}>
       <Toolbar>
-        {/* Logo and Mobile Menu Icon */}
         <Box sx={{ flexGrow: 1, display: { xs: 'block', lg: 'none' } }}>
           <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleMenuOpen}>
             <MenuIcon />
@@ -55,14 +49,12 @@ export default function Navbar() {
           </Typography>
         </Box>
 
-        {/* Desktop Logo */}
         <Box sx={{ display: { xs: 'none', lg: 'flex' }, flexGrow: 1 }}>
           <Typography variant="h6">
             Deva Pizza Shop
           </Typography>
         </Box>
 
-        {/* Mobile Menu Dropdown */}
         <Box sx={{ display: { xs: 'block', lg: 'none' } }}>
           <Menu
             anchorEl={anchorEl}
@@ -75,7 +67,7 @@ export default function Navbar() {
                 <MenuItem onClick={handleMenuClose}>{currentUser.name}</MenuItem>
                 <MenuItem component={Link} to="/orders">Orders</MenuItem>
                 <MenuItem component={Link} to="/cart" onClick={handleMenuClose}>
-                  <ShoppingCartCheckoutIcon />
+                <ShoppingCartCheckoutIcon />
                   <Badge badgeContent={cartState.cartItems.length} color="secondary" sx={{ marginLeft: 1 }} />
                 </MenuItem>
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
@@ -92,24 +84,19 @@ export default function Navbar() {
           </Menu>
         </Box>
 
-        {/* Desktop Login and Cart Buttons */}
         <Box sx={{ display: { xs: 'none', lg: 'flex' }, alignItems: 'center' }}>
-          {isLargeScreen && currentUser && (
+          {currentUser && (
             <Button component={Link} to="/orders" color="inherit">
               Orders
             </Button>
           )}
-          {isLargeScreen && (
-            <Button component={Link} to="/login" color="inherit">
-              Login
-            </Button>
-          )}
-          {isLargeScreen && (
-            <Button component={Link} to="/cart" color="inherit">
-              <ShoppingCartCheckoutIcon />
-              <Badge badgeContent={cartState.cartItems.length} color="secondary"  />
-            </Button>
-          )}
+          <Button component={Link} to="/login" color="inherit">
+            Login
+          </Button>
+          <Button component={Link} to="/cart" color="inherit">
+            <ShoppingCartCheckoutIcon />
+            <Badge badgeContent={cartState.cartItems.length} color="secondary"  />
+          </Button>
         </Box>
       </Toolbar>
     </AppBar>
