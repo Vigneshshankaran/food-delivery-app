@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const mongoURL = process.env.MONGO_URL || "mongodb+srv://vigneshganesha:v0TK8dfAQ86DTdZg@cluster0.nfta8.mongodb.net/food-app";
+const mongoURL = process.env.MONGO_URL
 
 // Establishing the connection with options for better control and stability
 mongoose.connect(mongoURL, {});

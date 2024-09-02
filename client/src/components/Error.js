@@ -1,11 +1,11 @@
 import React from "react";
+import { Alert, AlertTitle } from "@mui/material";
 
-export default function Error({ error }) {
+export default function Error({ error, title = "Error", severity = "error" }) {
   return (
-    <div>
-      <div className="alert alert-danger" role="alert">
-        {error}
-      </div>
-    </div>
+    <Alert severity={severity} sx={{ mt: 2 }}>
+      <AlertTitle>{title}</AlertTitle>
+      {error}
+    </Alert>
   );
 }

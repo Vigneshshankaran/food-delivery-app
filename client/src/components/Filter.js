@@ -1,27 +1,31 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { filterPizzas } from "../actions/pizzaActions";
-import { TextField, Select, MenuItem, Button, Grid, Paper, Box } from '@mui/material';
+import { TextField, Select, MenuItem, Button, Grid, Paper, Box, Container } from '@mui/material';
 
 export default function Filter() {
     const dispatch = useDispatch();
     const [searchKey, setSearchKey] = useState('');
     const [category, setCategory] = useState('all');
 
+    const handleFilter = () => {
+        if (searchKey.trim() === '' && category === 'all') return;
+        dispatch(filterPizzas(searchKey, category));
+    };
+
     return (
-        <div className='container'>
-            {/* Grid container for responsiveness */}
+        <Container maxWidth="md">
             <Grid container spacing={2} justifyContent="center">
-                <Grid item xs={12} md={8}>
-                    <Paper elevation={3} style={{ padding: '16px' }}>
+                <Grid item xs={12} md={6}>
+                    <Paper elevation={3} sx={{ padding: 2 }}>
                         <Box display="flex" flexDirection="column" gap={2}>
-                            {/* Search TextField */}
                             <TextField
                                 fullWidth
                                 variant="outlined"
                                 label="Search Pizzas"
                                 value={searchKey}
                                 onChange={(e) => setSearchKey(e.target.value)}
+                                aria-label="Search Pizzas"
                                 InputProps={{ 
                                     sx: { 
                                         borderRadius: 1, 
@@ -36,12 +40,12 @@ export default function Filter() {
                                     }
                                 }} 
                             />
-                            {/* Category Select */}
                             <Select
                                 fullWidth
                                 variant="outlined"
                                 value={category}
                                 onChange={(e) => setCategory(e.target.value)}
+                                aria-label="Select Category"
                                 sx={{
                                     '& .MuiOutlinedInput-root': {
                                         borderRadius: 1,
@@ -58,7 +62,6 @@ export default function Filter() {
                                 <MenuItem value="veg">Veg</MenuItem>
                                 <MenuItem value="nonveg">Non Veg</MenuItem>
                             </Select>
-                            {/* Filter Button */}
                             <Button
                                 variant="contained"
                                 sx={{
@@ -68,7 +71,8 @@ export default function Filter() {
                                     },
                                     borderRadius: 1
                                 }}
-                                onClick={() => dispatch(filterPizzas(searchKey, category))}
+                                onClick={handleFilter}
+                                disabled={searchKey.trim() === '' && category === 'all'}
                             >
                                 FILTER
                             </Button>
@@ -76,6 +80,6 @@ export default function Filter() {
                     </Paper>
                 </Grid>
             </Grid>
-        </div>
+        </Container>
     );
 }
