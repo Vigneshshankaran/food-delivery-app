@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
+
 import { 
   getAllPizzasReducer, 
   addPizzaReducer, 
@@ -19,6 +20,7 @@ import {
   getUserOrdersReducer, 
   getAllOrdersReducer 
 } from './reducers/orderReducer';
+
 
 // Combine reducers
 const rootReducer = combineReducers({
