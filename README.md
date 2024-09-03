@@ -23,11 +23,9 @@ A responsive and user-friendly food delivery web application built using the MER
 
 ## 📸 Screenshots
 
-![Home Page](./screenshots/home-page.png)
+![Home Page](https://github.com/user-attachments/assets/72ee7709-a980-423f-a721-1156540cc08b)
 *Home Page - Browse food items*
 
-![Cart Page](./screenshots/cart-page.png)
-*Cart Page - Review items before checkout*
 
 > *Add more screenshots with descriptions as needed.*
 
