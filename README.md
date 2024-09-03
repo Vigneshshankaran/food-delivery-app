@@ -9,7 +9,6 @@ A responsive and user-friendly food delivery web application built using the MER
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
-- [License](#license)
 
 ## 🚀 Features
 
@@ -86,6 +85,3 @@ A responsive and user-friendly food delivery web application built using the MER
 - **Authentication**: JWT (JSON Web Tokens), bcrypt
 - **Deployment**: Netlify (Frontend), Heroku (Backend)
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
